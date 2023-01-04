@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.master-div{
+    max-width: 90%;
+    margin: auto;
+}
+
+#adding-window[data-active='true']{
+    width: 380px;
+    height: 450px;
+    transform: translate(-50%, -50%) scale(1);
+    background-color: grey;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 9;
+    border-radius: 25px;
+}
+
+#adding-cards{
+    height: 250px;
+    width: 200px;
+    border-radius: 30px;
+    background-color: tomato;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.book-detail{
+    border-radius: 30px;
+    padding: 20px;
+    height: 250px;
+    width: 200px;
+    background-color: tomato;
+}
