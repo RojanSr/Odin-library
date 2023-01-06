@@ -1,48 +1,86 @@
-document.getElementById("adding-cards").addEventListener("click", function (e) {
-  console.log(0);
+const addingWindow = document.getElementById("adding-window");
+const closeIcon = document.getElementById("close-icon");
 
-  let addDetailsWindow = document.getElementById("adding-window");
-  addDetailsWindow.setAttribute("data-active", "true");
+// initiates when user clicks on add button
+function toggleActive() {
+  if (addingWindow.getAttribute("data-active") == "false") {
+    addingWindow.setAttribute("data-active", "true");
+  } else {
+    addingWindow.setAttribute("data-active", "false");
+  }
+}
 
-  
+// initiates when user clicks on close button
+function closeWindow() {
+  addingWindow.setAttribute("data-active", "false");
+}
 
+// When user click on Already Finished check box => Pages Read should be filled with value of Total Pages
 
-  // var div = document.createElement("div");
-  // let addingCard = document.getElementById("adding-cards");
-  // addingCard.style.display = "none";
+//This is input tag for Total Pages
+const totalPages = document.getElementById("totalPage").querySelector("input");
+let totalNumOfPages = 0;
 
-  // // div.innerHTML = "This is a new div!";
-  // div.classList.add("book-detail");
-  // document.querySelector(".card-container").appendChild(div);
-
-  // addingCard.style.display = "flex";
-
-  // document.querySelector(".card-container").appendChild(addingCard);
-
-  e.stopPropagation();
+//Adding an event listener so when it's changed by user it records the change
+totalPages.addEventListener("change", () => {
+  totalNumOfPages = totalPages.value;
 });
 
-document.addEventListener("click", function (event) {
+//This is input tag for Pages Read
+const pagesRead = document.getElementById("pagesComp").querySelector("input");
+
+//This is input tag for Already Finished?
+const checkBox = document.getElementById("finished").querySelector("input");
+
+//Adding event listener for Already finished, it listens for a change so that it can copy it to pagesRead's value
+checkBox.addEventListener("change", () => {
+  pagesRead.value = totalNumOfPages;
+});
+
+//prevent the form to reload
+const form = document.getElementById("addBookForm");
+function handleForm(e) {
+  e.preventDefault();
+  form.reset();
+  closeWindow();
+}
+form.addEventListener("submit", handleForm);
+
+/***************Accessing the information after form submit***************/
+
+const myLibrary = [];
+
+//This is input tag for Add button
+const submitAddBook = document
+  .getElementById("form-submit")
+  .querySelector("input");
+
+//Cliking the Add Button
+submitAddBook.addEventListener("click", () => {
+  //This is input tag for Book Title
+  const bookTitle = document.getElementById("bookTitle").querySelector("input");
+  const bookAuthor = document
+    .getElementById("bookAuthor")
+    .querySelector("input");
+
+  //Condition
   if (
-    event.target.closest("#adding-window") === null &&
-    document.getElementById("adding-window").getAttribute("data-active") ==
-      "true"
+    bookTitle.value != "" &&
+    bookAuthor.value != "" &&
+    totalPages.value != "" &&
+    pagesRead != ""
   ) {
-    console.log(1);
-    document.getElementById("adding-window").style.display = "none";
-    document
-      .getElementById("adding-window")
-      .setAttribute("data-active", "false");
+    //Adding all the info in library array as objects
+
+    myLibrary.push({
+      title: bookTitle.value,
+      author: bookAuthor.value,
+      totalPages: totalPages.value,
+      pagesRead: pagesRead.value,
+    });
+
+    console.log(myLibrary);
   }
 });
 
-const bookList = [
-  {
-    bookName: "gdfsdf",
-    bookAuthor: "fsdfdsf",
-    noOfPages: 234,
-    noOFPagesRead: 223,
-    isCompleted: false,
-  },
-];
-
+/*********************Create new Cards***************/

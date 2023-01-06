@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 .master-div{
@@ -9,16 +11,11 @@
     margin: auto;
 }
 
-#adding-window[data-active='true']{
-    width: 380px;
-    height: 450px;
-    transform: translate(-50%, -50%) scale(1);
-    background-color: grey;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 9;
-    border-radius: 25px;
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #adding-cards{
@@ -26,10 +23,13 @@
     width: 200px;
     border-radius: 30px;
     background-color: tomato;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
+}
+
+#adding-cards:hover{
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 300ms;
+    height: 252px;
+    width: 202px;
 }
 
 
@@ -45,4 +45,133 @@
     height: 250px;
     width: 200px;
     background-color: tomato;
+}
+#adding-window[data-active=false]{
+    display: none;
+}
+#adding-window[data-active=true]{
+    display: block;
+    width: 380px;
+    height: 450px;
+    transform: translate(-50%, -50%) scale(1);
+    background-color: turquoise;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 9;
+    border-radius: 25px;
+    
+}
+
+#adding-window #close-icon {
+    cursor: pointer;
+    font-size: 2.6rem;
+    color: whitesmoke;
+    float: right;
+    margin: 20px;
+}
+
+.add-book-form{
+    display: grid;
+    place-items: center;
+    width: 380px;
+    height: 300px;
+    position: relative;
+    top: -30px;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: repeat(1fr, 6) ;
+    grid-template-areas: 
+    "headTitle headTitle"
+    "title title"
+    "author author"
+    "totalPage pagesComp"
+    "totalPageTxt pagesCompTxt"
+    "finished finished"
+    "formSubmit formSubmit"
+    ;
+}
+
+.add-book-form input[placeholder]{
+    border: none;
+    border-radius: 8px;
+    height: 2.4rem;
+    width: 16rem;
+    text-align: center;
+}
+
+.add-book-form #totalPage input {
+    width: 3rem;
+    border: none;
+    border-radius: 4px;
+}
+
+.add-book-form #pagesComp input {
+    width: 3rem;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Hiding up-down arrow in inpute type number */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  text-align: center;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  text-align: center;
+}
+
+input::placeholder {
+    color: lightseagreen;
+    font-size: 0.9rem;
+}
+#headTitle{
+    grid-area: headTitle;
+}
+#bookTitle{
+    grid-area: title;
+    margin-bottom: 10px;
+}
+#bookAuthor{
+    grid-area: author;
+}
+#totalPage{
+    grid-area: totalPage;
+}
+#totalPageTxt{
+    grid-area: totalPageTxt;
+    font-size: 0.6rem;
+    margin-top: -10px;
+}
+#pagesComp{
+    grid-area: pagesComp;
+}
+#pagesCompTxt{
+    grid-area: pagesCompTxt;
+    font-size: 0.6rem;
+    margin-top: -10px;
+}
+#finished{
+    grid-area: finished;
+    margin-top: -10px;
+    color: hsl(180, 100%, 35%);
+}
+#form-submit{
+    grid-area: formSubmit;
+}
+#form-submit input{
+    border: none;
+    padding: 8px 60px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: rgb(120, 233, 120);
+}
+
+#form-submit input:hover{
+    background-color: lightgreen;
 }

@@ -20,7 +20,7 @@
       </header>
       <main>
         <div class="card-container">
-        <div id="adding-cards">
+        <div id="adding-cards" class="flex" onclick=toggleActive()>
           <i
             class="fa fa-plus"
             style="font-size: 40px; color: beige"
@@ -33,7 +33,23 @@
       </main>
       <footer></footer>
 
-      <div id="adding-window" data-active = "false"></div>
+      <div id="adding-window" data-active = "false">
+        <i class="fa fa-times" id ="close-icon" onclick="closeWindow()"></i>
+        <form class="add-book-form" id="addBookForm">
+          <h3 id="headTitle" style="font-size: 1.8rem; margin-bottom: 10px;">Add Book</h3>
+          <div  id="bookTitle"><input type="text" placeholder="Title" required>
+          </div>
+          <div id="bookAuthor"><input type="text"  placeholder="Author" required>
+          </div>
+          <div id="totalPage"><input type="number" required>
+          </div>
+          <div id="pagesComp"><input type="number" required></div>
+          <span id="totalPageTxt">Total Pages</span>
+          <span id="pagesCompTxt">Pages Read</span>
+          <div id="finished"> <span style="font-size: 0.7rem; margin-right: 6px;">Already Finished?</span><input type="checkbox"></div>
+          <div id="form-submit"><input type="submit" value="Add"></div>
+        </form>
+      </div>
     </div>
   </body>
 </html>
