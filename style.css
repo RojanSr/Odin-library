@@ -1,8 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 :root {
+    --light-gray: hsla(300, 4%, 90%, 1);
+    --davys-grey: hsla(12, 5%, 36%, 1);
+    --white: hsla(225, 100%, 99%, 1);
+
+    --default-clr-txt: hsl(0, 0%, 2%);
+
     --container-width: 1200px;
     --container-padding: 20px;
-    --default-clr-txt: hsl(0, 0%, 2%);
 }
 
 *{
@@ -17,6 +22,25 @@ body {
     font-weight: 500;
     word-wrap: break-word;
     color: var(--default-clr-txt);
+    background-color: var(--light-gray);
+
+}
+
+header {
+    background-color: var(--davys-grey);
+    color: var(--light-gray);
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.8);
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.main {
+    text-align: center;
 }
 
 .flex {
@@ -30,44 +54,84 @@ body {
     margin: 0 auto;
     padding: var(--container-padding);
 }
-
-#adding-cards{
-    height: 250px;
-    width: 200px;
-    border-radius: 30px;
-    background-color: tomato;
-    cursor: pointer;
-}
-
-#adding-cards:hover{
-    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 300ms;
-    height: 252px;
-    width: 202px;
-}
-
-
 .card-container{
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
 
-.book-detail{
+#adding-cards {
+    cursor: pointer;
+    /* background: none; */
+}
+
+.card{
     border-radius: 30px;
     padding: 20px;
-    height: 250px;
-    width: 200px;
-    background-color: tomato;
+    height: 300px;
+    width: 280px;
+    background-color: var(--davys-grey);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: var(--light-gray);
+    word-break: normal;
+    text-align: center;
+
 }
-#adding-window[data-active=false]{
+/* 
+.card:hover{
+    height: calc(300px + 2px);
+    width: calc(280px + 2px);
+} */
+
+.card span {
+    font-size: 0.7em;
+}
+
+.card p:first-child{
+    font-size: 1em;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+
+}
+.card p:nth-child(2){
+    font-size: 0.7em;
+    letter-spacing: 0.8px;
+}
+
+.thumbnail{
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5), 
+        rgba(0, 0, 0, 0.7)
+        ), url(https://cdn.pixabay.com/photo/2014/04/03/10/25/reading-310397_1280.png) center / cover no-repeat ; 
+    background-size: 107%;
+    transition: background .6s ;
+}
+    
+.thumbnail:hover{
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5), 
+        rgba(0, 0, 0, 1)
+        ), url(https://cdn.pixabay.com/photo/2014/04/03/10/25/reading-310397_1280.png) top / cover no-repeat ; 
+    background-size: 130%;
+}
+
+#adding-window[data-active='false']{
     display: none;
 }
-#adding-window[data-active=true]{
+#adding-window[data-active='true']{
+    
     display: block;
+    animation: open-window 0.1s ease-in-out;
     width: 380px;
     height: 450px;
     transform: translate(-50%, -50%) scale(1);
-    background-color: turquoise;
+    color: var(--light-gray);
+    background-color: var(--davys-grey);
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.6);
     position: fixed;
     top: 50%;
     left: 50%;
@@ -76,15 +140,32 @@ body {
     
 }
 
+@keyframes open-window {
+    0% {
+    opacity: 0;
+    }
+
+    50% {
+        opacity: 0.75;
+    }
+
+    100% {
+    opacity: 1;
+    }
+  }
+
+
+
 #adding-window #close-icon {
     cursor: pointer;
     font-size: 2.6rem;
-    color: whitesmoke;
+    color: var(--light-gray);
     float: right;
     margin: 20px;
 }
 
-.add-book-form{
+
+.add-book-form {
     display: grid;
     place-items: center;
     width: 380px;
@@ -102,6 +183,11 @@ body {
     "finished finished"
     "formSubmit formSubmit"
     ;
+}
+
+.add-book-form input{
+    color: var(--davys-grey);
+    letter-spacing: 1px;
 }
 
 .add-book-form input[placeholder]{
@@ -140,7 +226,7 @@ input[type=number] {
 }
 
 input::placeholder {
-    color: lightseagreen;
+    color: var(--davys-grey);
     font-size: 1rem;
 }
 #headTitle{
@@ -172,7 +258,7 @@ input::placeholder {
 #finished{
     grid-area: finished;
     margin-top: -10px;
-    color: hsl(180, 100%, 35%);
+    color: var(--light-gray);
 }
 #form-submit{
     grid-area: formSubmit;
@@ -182,9 +268,10 @@ input::placeholder {
     padding: 8px 60px;
     border-radius: 8px;
     cursor: pointer;
-    background-color: rgb(120, 233, 120);
+    background-color: var(--white);
+    color: var(--davys-grey);
 }
 
 #form-submit input:hover{
-    background-color: lightgreen;
+    background-color: var(--light-gray);
 }

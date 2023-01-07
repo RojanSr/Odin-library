@@ -5,9 +5,7 @@ const closeIcon = document.getElementById("close-icon");
 function toggleActive() {
   if (addingWindow.getAttribute("data-active") == "false") {
     addingWindow.setAttribute("data-active", "true");
-  } else {
-    addingWindow.setAttribute("data-active", "false");
-  }
+  } 
 }
 
 // initiates when user clicks on close button
@@ -28,6 +26,11 @@ totalPages.addEventListener("change", () => {
 
 //This is input tag for Pages Read
 const pagesRead = document.getElementById("pagesComp").querySelector("input");
+
+//Adding an event listener so when it's changed by user it records the change
+pagesRead.addEventListener("change", () => {
+  pagesRead.value = pagesRead.value;
+});
 
 //This is input tag for Already Finished?
 const checkBox = document.getElementById("finished").querySelector("input");
@@ -51,12 +54,11 @@ form.addEventListener("submit", handleForm);
 const myLibrary = [];
 
 //This is input tag for Add button
-const submitAddBook = document
-  .getElementById("form-submit")
-  .querySelector("input");
+const submitAddBook = document.getElementById("form-submit").querySelector("input");
 
 //Cliking the Add Button
 submitAddBook.addEventListener("click", () => {
+
   //This is input tag for Book Title
   const bookTitle = document.getElementById("bookTitle").querySelector("input");
   const bookAuthor = document
@@ -64,23 +66,88 @@ submitAddBook.addEventListener("click", () => {
     .querySelector("input");
 
   //Condition
-  if (
-    bookTitle.value != "" &&
-    bookAuthor.value != "" &&
-    totalPages.value != "" &&
-    pagesRead != ""
-  ) {
-    //Adding all the info in library array as objects
+  if (pagesRead.value > totalPages.value){
+    return pagesRead.setCustomValidity("This cannot be greater than total pages")
+  } else if (
+        bookTitle.value != "" &&
+        bookAuthor.value != "" &&
+        totalPages.value != "" &&
+        pagesRead.value != "" 
+      ) {
 
-    myLibrary.push({
-      title: bookTitle.value,
-      author: bookAuthor.value,
-      totalPages: totalPages.value,
-      pagesRead: pagesRead.value,
-    });
+        function pushingValueInside() {
+          //Adding all the info in library array as objects
+          
+          myLibrary.push({
+            title: bookTitle.value,
+            author: bookAuthor.value,
+            totalPages: totalPages.value,
+            pagesRead: pagesRead.value,
+          });
+          }
+        
+        pushingValueInside();
 
-    console.log(myLibrary);
-  }
+
+        function creatingNewCard() {
+          // After Submitting form, creating new card
+          let div = document.createElement("div");
+          let author = document.createElement("p");
+          let title = document.createElement("p");
+
+          let pageRead = document.createElement("span");
+          let totalPage = document.createElement("span");
+
+        
+          
+        
+          let addingCard = document.getElementById("adding-cards");
+          addingCard.style.display = "none";
+        
+
+          div.classList.add("card");
+          div.classList.add("thumbnail");
+
+          document.querySelector(".card-container").appendChild(div);
+          
+          addingCard.style.display = "flex";
+
+          // to capitalize
+          let capBookTitle = bookTitle.value.charAt(0).toUpperCase() + bookTitle.value.slice(1);
+          let capBookAuthor = bookAuthor.value.charAt(0).toUpperCase() + bookAuthor.value.slice(1);
+
+          author.innerHTML = "- " + capBookAuthor;
+          title.innerHTML = capBookTitle;
+          pageRead.innerHTML = pagesRead.value;
+          totalPage.innerHTML = totalPages.value;
+        
+          document.querySelector(".card-container").appendChild(addingCard);
+        
+
+
+          //appending author info inside the new created card
+          div.appendChild(title);
+          div.appendChild(author);
+          div.appendChild(pageRead);
+          div.appendChild(totalPage);
+        }
+
+        creatingNewCard();
+
+
+        if (pagesRead.value <= totalPages.value){
+          closeWindow();
+          form.reset();
+        }
+
+        console.log(myLibrary);
+      }
+  
 });
+
+
+
+
+
 
 /*********************Create new Cards***************/

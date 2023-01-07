@@ -21,10 +21,10 @@
       </header>
       <main>
         <div class="card-container container">
-        <div id="adding-cards" class="flex" onclick=toggleActive()>
+        <div id="adding-cards" class="flex card" onclick=toggleActive()>
           <i
             class="fa fa-plus"
-            style="font-size: 40px; color: beige"
+            style="font-size: 40px;"
           >
           </i>
           </div>
@@ -34,19 +34,21 @@
 
       <div id="adding-window" data-active = "false">
         <i class="fa fa-times" id ="close-icon" onclick="closeWindow()"></i>
-        <form class="add-book-form" id="addBookForm">
+        <form id="addBookForm">
+          <div class="add-book-form">
           <h3 id="headTitle" style="font-size: 1.8rem; margin-bottom: 10px;">Add Book</h3>
-          <div  id="bookTitle"><input type="text" placeholder="Title" required>
+          <div  id="bookTitle"><input type="text" placeholder="Title" name="titleOfBook" required>
           </div>
-          <div id="bookAuthor"><input type="text"  placeholder="Author" required>
+          <div id="bookAuthor"><input type="text"  placeholder="Author" name="titleOfAuthor" required>
           </div>
-          <div id="totalPage"><input type="number" required>
+          <div id="totalPage"><input type="number" name="pagesTotal" required>
           </div>
-          <div id="pagesComp"><input type="number" required></div>
+          <div id="pagesComp"><input type="number" name="pagesRead" required></div>
           <span id="totalPageTxt">Total Pages</span>
           <span id="pagesCompTxt">Pages Read</span>
           <div id="finished"> <span style="font-size: 0.7rem; margin-right: 6px;">Already Finished?</span><input type="checkbox"></div>
-          <div id="form-submit"><input type="submit" value="Add"></div>
+          <div id="form-submit"><input type="submit" value="Add" name="submit"></div>
+        </div>
         </form>
       </div>
   </body>
