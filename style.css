@@ -34,7 +34,8 @@ header {
     margin-bottom: 20px;
 }
 
-header a {
+.container a {
+    display: inline-block;
     letter-spacing: 3px;
     text-decoration: none;
     color: var(--light-gray);
@@ -58,17 +59,19 @@ header a {
     padding: var(--container-padding);
 }
 .card-container{
-    display: flex;
-    flex-wrap: wrap;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-template-rows: repeat(auto-fill, 1fr);
     gap: 46px;
+
 }
-/* 
-#adding-cards:not(:last-child) {
-    flex: 1;
-} */
+
 
 #adding-cards {
     cursor: pointer;
+    height: 308px;
 }
 
 #adding-cards > i {
@@ -82,9 +85,7 @@ header a {
 
 .card{
     border-radius: 30px;
-    padding: 20px;
-    height: 300px;
-    width: 280px;
+    padding: 80px;
     background-color: var(--rich-black-fogra-39);
     display: flex;
     flex-direction: column;
@@ -94,7 +95,9 @@ header a {
     color: var(--light-gray);
     word-break: normal;
     text-align: center;
+    position: relative;
 }
+
 .card span {
     font-size: 0.7em;
 }
@@ -113,19 +116,39 @@ header a {
 .thumbnail{
     background: linear-gradient(
         rgba(0, 0, 0, 0.5), 
-        rgba(0, 0, 0, 0.7)
-        ), url(https://cdn.pixabay.com/photo/2014/04/03/10/25/reading-310397_1280.png) center / cover no-repeat ; 
-    background-size: 107%;
-    transition: background .6s ;
+        rgba(0, 0, 0, 0.8)
+        ), url(./images/thumbnail.png) center / cover no-repeat ; 
+    background-size: 104% 104%;
+    transition: background 0.6s ;
 }
     
 .thumbnail:hover{
     background: linear-gradient(
         rgba(0, 0, 0, 0.5), 
         rgba(0, 0, 0, 1)
-        ), url(https://cdn.pixabay.com/photo/2014/04/03/10/25/reading-310397_1280.png) top / cover no-repeat ; 
-    background-size: 130%;
+        ), url(./images/thumbnail.png) top / cover no-repeat ; 
+    background-size: 115% 120%;
 }
+
+.thumbnail::before {
+    content: 'Default';
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    padding: 0px 5px;
+    font-size: 0.6em;
+    color: var(--white);
+}
+.thumbnail.status-completed::before {
+    content: 'Status: Completed';
+    background-color: green;
+
+}
+.thumbnail.status-reading::before {
+    content: 'Status: Reading';
+    background-color: rgb(121, 144, 75);
+}
+
 
 #adding-window[data-active='false']{
     display: none;
@@ -133,7 +156,7 @@ header a {
 #adding-window[data-active='true']{
     
     display: block;
-    animation: open-window 0.1s ease-in-out;
+    animation: open-window 0.15s ease-in-out;
     width: 380px;
     height: 450px;
     transform: translate(-50%, -50%) scale(1);
@@ -141,7 +164,7 @@ header a {
     background: linear-gradient(
         rgba(0, 0, 0, 0.4), 
         rgba(0, 0, 0, 0.8)
-        ), url(https://t3.ftcdn.net/jpg/02/38/81/44/360_F_238814457_9NJCITpFXaQ00seFXXcUdEVxnKD3PO1P.jpg);
+        ), url(./images/books-background.jpg);
     background-position: center;
     box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.6);
     position: fixed;
@@ -167,11 +190,11 @@ header a {
 
 #adding-window #close-icon {
     cursor: pointer;
-    font-size: 2.6rem;
+    font-size: 2.8rem;
     color: var(--light-gray);
     float: right;
     margin: 20px;
-    transition: transform 0.5s;
+    transition: transform 0.8s;
 }
 #adding-window #close-icon:hover {
     transform: rotate(180deg);

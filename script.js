@@ -66,7 +66,7 @@ submitAddBook.addEventListener("click", () => {
     .querySelector("input");
 
   //Condition
-  if (pagesRead.value > totalPages.value){
+  if (parseInt(pagesRead.value) > parseInt(totalPages.value)){
     return pagesRead.setCustomValidity("This cannot be greater than total pages")
   } else if (
         bookTitle.value != "" &&
@@ -108,9 +108,18 @@ submitAddBook.addEventListener("click", () => {
           div.classList.add("card");
           div.classList.add("thumbnail");
 
+
           document.querySelector(".card-container").appendChild(div);
           
           addingCard.style.display = "flex";
+
+        // Status Bar
+
+        if(totalPages.value != pagesRead.value){
+          div.classList.add("status-reading");
+        }else {
+          div.classList.add("status-completed");
+        }
 
           // to capitalize
           let capBookTitle = bookTitle.value.charAt(0).toUpperCase() + bookTitle.value.slice(1);
@@ -134,20 +143,13 @@ submitAddBook.addEventListener("click", () => {
 
         creatingNewCard();
 
-
-        if (pagesRead.value <= totalPages.value){
-          closeWindow();
-          form.reset();
-        }
-
         console.log(myLibrary);
       }
   
 });
 
+/**************************Status bar***************************/
 
 
 
 
-
-/*********************Create new Cards***************/
