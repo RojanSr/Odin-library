@@ -143,7 +143,11 @@ submitAddBook.addEventListener("click", () => {
 
         creatingNewCard();
 
-        console.log(myLibrary);
+        // This is necessary to close the add book window
+        if(parseInt(pagesRead.value) <= parseInt(totalPages.value)){
+          closeWindow();
+          form.reset();
+        }
       }
   
 });
