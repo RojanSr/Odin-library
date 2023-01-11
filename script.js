@@ -98,15 +98,23 @@ submitAddBook.addEventListener("click", () => {
           let pageRead = document.createElement("span");
           let totalPage = document.createElement("span");
 
+          let editButton = document.createElement("div");
+
         
           
         
           let addingCard = document.getElementById("adding-cards");
           addingCard.style.display = "none";
+          let editIcon = document.createElement("i");
+          editIcon.classList.add("fa-solid");
+          editIcon.classList.add("fa-pen");
         
 
           div.classList.add("card");
           div.classList.add("thumbnail");
+
+          editButton.classList.add("edit-icon");
+          editButton.appendChild(editIcon);
 
 
           document.querySelector(".card-container").appendChild(div);
@@ -135,6 +143,7 @@ submitAddBook.addEventListener("click", () => {
 
 
           //appending author info inside the new created card
+          div.appendChild(editButton);
           div.appendChild(title);
           div.appendChild(author);
           div.appendChild(pageRead);

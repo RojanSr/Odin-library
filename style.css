@@ -122,13 +122,13 @@ header > .container {
     font-size: 0.7em;
 }
 
-.card p:first-child{
+.card p:nth-child(2){
     font-size: 1em;
     font-weight: 700;
     letter-spacing: 0.8px;
 
 }
-.card p:nth-child(2){
+.card p:nth-child(3){
     font-size: 0.7em;
     letter-spacing: 0.8px;
 }
@@ -151,7 +151,8 @@ header > .container {
 }
 
 .thumbnail::before {
-    content: 'Default';
+    content: 'Status: Unknown';
+    margin-right: 50px;
     position: absolute;
     top: 20px;
     left: 30px;
@@ -160,13 +161,24 @@ header > .container {
     color: var(--white);
 }
 .thumbnail.status-completed::before {
-    content: 'Status: Completed';
+    content: 'Status: Completed' ;
     background-color: green;
-
+    
 }
 .thumbnail.status-reading::before {
     content: 'Status: Reading';
     background-color: rgb(121, 144, 75);
+}
+
+.edit-icon {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    font-size: 1.4em;
+    cursor: pointer;
+}
+.edit-icon:hover {
+    color: grey;
 }
 
 
