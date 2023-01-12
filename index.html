@@ -37,13 +37,13 @@
         <form id="addBookForm">
           <div class="add-book-form">
           <h3 id="headTitle" style="font-size: 1.8rem; margin-bottom: 10px;">Add Book</h3>
-          <div  id="bookTitle"><input type="text" placeholder="Title" name="titleOfBook" required>
+          <div  id="bookTitle"><input type="text" placeholder="Title" name="titleOfBook" maxlength="40" required>
           </div>
-          <div id="bookAuthor"><input type="text"  placeholder="Author" name="titleOfAuthor" required>
+          <div id="bookAuthor"><input type="text"  placeholder="Author" name="titleOfAuthor" maxlength="20" required>
           </div>
-          <div id="totalPage"><input type="number" name="pagesTotal" required>
+          <div id="totalPage"><input type="number" name="pagesTotal" max="10000" required>
           </div>
-          <div id="pagesComp"><input type="number" name="pagesRead" required></div>
+          <div id="pagesComp"><input type="number" name="pagesRead" max="10000" required></div>
           <span id="totalPageTxt">Total Pages</span>
           <span id="pagesCompTxt">Pages Read</span>
           <div id="finished"> <span style="font-size: 0.7rem; margin-right: 6px;">Already Finished?</span><input type="checkbox"></div>
