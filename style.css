@@ -1,283 +1,267 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
 :root {
-    --rich-black-fogra-39: hsla(0, 0%, 1%, 0.8);
-    --davys-grey: hsla(12, 5%, 25%, 1);
-    --light-gray: hsla(300, 4%, 90%, 1);
-    --white: hsla(225, 100%, 99%, 1);
+  --rich-black-fogra-39: hsla(0, 0%, 1%, 0.8);
+  --davys-grey: hsla(12, 5%, 25%, 1);
+  --light-gray: hsla(300, 4%, 90%, 1);
+  --white: hsla(225, 100%, 99%, 1);
 
-    --default-clr-txt: hsl(0, 0%, 2%);
+  --default-clr-txt: hsl(0, 0%, 2%);
 
-    --container-width: 1300px;
-    --container-padding: 20px;
+  --container-width: 1300px;
+  --container-padding: 20px;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    word-wrap: break-word;
-    color: var(--default-clr-txt);
-    background-color: var(--light-gray);
-
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  word-wrap: break-word;
+  color: var(--default-clr-txt);
+  background-color: var(--light-gray);
 }
 
 header {
-    background-color: var(--rich-black-fogra-39);
-    color: var(--light-gray);
-    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.8);
-    margin-bottom: 20px;
+  background-color: var(--rich-black-fogra-39);
+  color: var(--light-gray);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.8);
+  margin-bottom: 20px;
 }
 
 header > .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .container a {
-    display: inline-block;
-    letter-spacing: 3px;
-    text-decoration: none;
-    color: var(--light-gray);
-    font-size: 1rem;
-    transition: transform 0.3s;
-    transform-origin: 0 0;
+  display: inline-block;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: var(--light-gray);
+  font-size: 1rem;
+  transition: transform 0.3s;
+  transform-origin: 0 0;
 }
 
 .container > a > i {
-    font-size: 3.3rem;
-    cursor: pointer;
-    transform: scale(1);
-    transition: transform 0.3s;
+  font-size: 3.3rem;
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.3s;
 }
 
 .container > a > i:hover {
-    transform: scale(0.9);
-    color: skyblue;
+  transform: scale(0.9);
+  color: skyblue;
 }
 
 .main {
-    text-align: center;
+  text-align: center;
 }
 
 .flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: var(--container-padding);
-    overflow: hidden;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: var(--container-padding);
+  overflow: hidden;
 }
-.card-container{
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    grid-template-rows: repeat(auto-fill, 1fr);
-    gap: 46px;
-
+.card-container {
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-rows: repeat(auto-fill, 1fr);
+  gap: 46px;
 }
-
 
 #adding-cards {
-    cursor: pointer;
-    /* height: 308px; */
+  cursor: pointer;
+  /* height: 308px; */
 }
 
 #adding-cards > i {
-    transition: transform 0.5s;
-    font-size: 3em;
-    transform: scale(1);
-    position: fixed;
+  transition: transform 0.5s;
+  font-size: 3em;
+  transform: scale(1);
 }
 #adding-cards:hover > i {
-    transform: rotate(180deg) scale(1.5);
-    
+  transform: rotate(180deg) scale(1.5);
 }
 
-.card{
-    border-radius: 30px;
-    padding: 80px;
-    background-color: var(--rich-black-fogra-39);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    color: var(--light-gray);
-    word-break: normal;
-    text-align: center;
-    position: relative;
+.card {
+  border-radius: 30px;
+  padding: 80px;
+  background-color: var(--rich-black-fogra-39);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: var(--light-gray);
+  word-break: normal;
+  text-align: center;
+  position: relative;
 }
 
 .card span {
-    font-size: 0.7em;
+  font-size: 0.7em;
 }
 
-.card p:nth-child(2){
-    font-size: 1em;
-    font-weight: 700;
-    letter-spacing: 0.8px;
+.card p:nth-child(2) {
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+.card p:nth-child(3) {
+  font-size: 0.7em;
+  letter-spacing: 0.8px;
+}
 
-}
-.card p:nth-child(3){
-    font-size: 0.7em;
-    letter-spacing: 0.8px;
+.thumbnail {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+    url(./images/thumbnail.png) center / cover no-repeat;
+  background-size: 104% 104%;
+  transition: background 0.6s;
 }
 
-.thumbnail{
-    background: linear-gradient(
-        rgba(0, 0, 0, 0.5), 
-        rgba(0, 0, 0, 0.8)
-        ), url(./images/thumbnail.png) center / cover no-repeat ; 
-    background-size: 104% 104%;
-    transition: background 0.6s ;
-}
-    
-.thumbnail:hover{
-    background: linear-gradient(
-        rgba(0, 0, 0, 0.5), 
-        rgba(0, 0, 0, 1)
-        ), url(./images/thumbnail.png) top / cover no-repeat ; 
-    background-size: 115% 120%;
+.thumbnail:hover {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
+    url(./images/thumbnail.png) top / cover no-repeat;
+  background-size: 115% 120%;
 }
 
 .thumbnail::before {
-    content: 'Status: Unknown';
-    margin-right: 50px;
-    position: absolute;
-    top: 20px;
-    left: 30px;
-    padding: 0px 5px;
-    font-size: 0.6em;
-    color: var(--white);
+  content: "Status: Unknown";
+  margin-right: 50px;
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  padding: 0px 5px;
+  font-size: 0.6em;
+  color: var(--white);
 }
 .thumbnail.status-completed::before {
-    content: 'Status: Completed' ;
-    background-color: green;
-    
+  content: "Status: Completed";
+  background-color: green;
 }
 .thumbnail.status-reading::before {
-    content: 'Status: Reading';
-    background-color: rgb(121, 144, 75);
+  content: "Status: Reading";
+  background-color: rgb(121, 144, 75);
 }
 
 .edit-icon {
-    position: absolute;
-    top: 15px;
-    right: 30px;
-    font-size: 1.4em;
-    cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  font-size: 1.4em;
+  cursor: pointer;
 }
 .edit-icon:hover {
-    color: grey;
+  color: grey;
 }
 
-
-#adding-window[data-active='false']{
-    display: none;
+#adding-window[data-active="false"] {
+  display: none;
 }
-#adding-window[data-active='true']{
-    
-    display: block;
-    animation: open-window 0.15s ease-in-out;
-    width: 380px;
-    height: 450px;
-    transform: translate(-50%, -50%) scale(1);
-    color: var(--rich-black-fogra-39);
-    background: linear-gradient(
-        rgba(0, 0, 0, 0.4), 
-        rgba(0, 0, 0, 0.8)
-        ), url(./images/books-background.jpg);
-    background-position: center;
-    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.6);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 9;
-    border-radius: 25px;
+#adding-window[data-active="true"] {
+  display: block;
+  animation: open-window 0.15s ease-in-out;
+  width: 380px;
+  height: 450px;
+  transform: translate(-50%, -50%) scale(1);
+  color: var(--rich-black-fogra-39);
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)),
+    url(./images/books-background.jpg);
+  background-position: center;
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 9;
+  border-radius: 25px;
 }
 
 @keyframes open-window {
-    0% {
+  0% {
     opacity: 0;
-    }
-
-    50% {
-        opacity: 0.75;
-    }
-
-    100% {
-    opacity: 1;
-    }
   }
 
+  50% {
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 #adding-window #close-icon {
-    cursor: pointer;
-    font-size: 2.8rem;
-    color: var(--light-gray);
-    float: right;
-    margin: 20px;
-    transition: transform 0.8s;
+  cursor: pointer;
+  font-size: 2.8rem;
+  color: var(--light-gray);
+  float: right;
+  margin: 20px;
+  transition: transform 0.8s;
 }
 #adding-window #close-icon:hover {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 .add-book-form {
-    display: grid;
-    place-items: center;
-    width: 380px;
-    height: 300px;
-    position: relative;
-    top: -30px;
-    grid-template-columns: 1fr 1fr ;
-    grid-template-rows: repeat(1fr, 6) ;
-    grid-template-areas: 
+  display: grid;
+  place-items: center;
+  width: 380px;
+  height: 300px;
+  position: relative;
+  top: -30px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(1fr, 6);
+  grid-template-areas:
     "headTitle headTitle"
     "title title"
     "author author"
     "totalPage pagesComp"
     "totalPageTxt pagesCompTxt"
     "finished finished"
-    "formSubmit formSubmit"
-    ;
+    "formSubmit formSubmit";
 }
 
-.add-book-form input{
-    color: var(--rich-black-fogra-39);
-    letter-spacing: 1px;
+.add-book-form input {
+  color: var(--rich-black-fogra-39);
+  letter-spacing: 1px;
 }
 
-.add-book-form input[placeholder]{
-    border: none;
-    border-radius: 12px;
-    height: 2.4rem;
-    width: 16rem;
-    text-align: center;
+.add-book-form input[placeholder] {
+  border: none;
+  border-radius: 12px;
+  height: 2.4rem;
+  width: 16rem;
+  text-align: center;
 }
 
 .add-book-form #totalPage input {
-    width: 3rem;
-    border: none;
-    border-radius: 5px;
-    padding: 3px;
+  width: 3rem;
+  border: none;
+  border-radius: 5px;
+  padding: 3px;
 }
 
 .add-book-form #pagesComp input {
-    width: 3rem;
-    border: none;
-    border-radius: 5px;
-    padding: 3px;
+  width: 3rem;
+  border: none;
+  border-radius: 5px;
+  padding: 3px;
 }
 
 /* Hiding up-down arrow in inpute type number */
@@ -290,64 +274,63 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   appearance: textfield;
   text-align: center;
   /* padding: 2px; */
 }
 
 input::placeholder {
-    color: var(--rich-black-fogra-39);
-    font-size: 1rem;
+  color: var(--rich-black-fogra-39);
+  font-size: 1rem;
 }
-#headTitle{
-    grid-area: headTitle;
-    color: var(--rich-black-fogra-39);
+#headTitle {
+  grid-area: headTitle;
+  color: var(--rich-black-fogra-39);
 }
-#bookTitle{
-    grid-area: title;
-    /* margin-bottom: 10px; */
+#bookTitle {
+  grid-area: title;
+  /* margin-bottom: 10px; */
 }
-#bookAuthor{
-    grid-area: author;
+#bookAuthor {
+  grid-area: author;
 }
-#totalPage{
-    grid-area: totalPage;
+#totalPage {
+  grid-area: totalPage;
 }
-#totalPageTxt{
-    grid-area: totalPageTxt;
-    color: var(--white);
-    font-size: 0.6rem;
-    margin-top: -10px;
+#totalPageTxt {
+  grid-area: totalPageTxt;
+  color: var(--white);
+  font-size: 0.6rem;
+  margin-top: -10px;
 }
-#pagesComp{
-    grid-area: pagesComp;
+#pagesComp {
+  grid-area: pagesComp;
 }
-#pagesCompTxt{
-    grid-area: pagesCompTxt;
-    font-size: 0.6rem;
-    margin-top: -10px;
-    color: var(--white);
+#pagesCompTxt {
+  grid-area: pagesCompTxt;
+  font-size: 0.6rem;
+  margin-top: -10px;
+  color: var(--white);
+}
+#finished {
+  grid-area: finished;
+  margin-top: -10px;
+  color: var(--light-gray);
+}
+#form-submit {
+  grid-area: formSubmit;
+}
+#form-submit input {
+  border: none;
+  padding: 8px 60px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: var(--white);
+  color: var(--davys-grey);
+}
 
-}
-#finished{
-    grid-area: finished;
-    margin-top: -10px;
-    color: var(--light-gray);
-}
-#form-submit{
-    grid-area: formSubmit;
-}
-#form-submit input{
-    border: none;
-    padding: 8px 60px;
-    border-radius: 8px;
-    cursor: pointer;
-    background-color: var(--white);
-    color: var(--davys-grey);
-}
-
-#form-submit input:hover{
-    background-color: var(--light-gray);
-    color: var(--rich-black-fogra-39);
+#form-submit input:hover {
+  background-color: var(--light-gray);
+  color: var(--rich-black-fogra-39);
 }

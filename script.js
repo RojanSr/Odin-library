@@ -5,7 +5,7 @@ const closeIcon = document.getElementById("close-icon");
 function toggleActive() {
   if (addingWindow.getAttribute("data-active") == "false") {
     addingWindow.setAttribute("data-active", "true");
-  } 
+  }
 }
 
 // initiates when user clicks on close button
@@ -54,11 +54,12 @@ form.addEventListener("submit", handleForm);
 const myLibrary = [];
 
 //This is input tag for Add button
-const submitAddBook = document.getElementById("form-submit").querySelector("input");
+const submitAddBook = document
+  .getElementById("form-submit")
+  .querySelector("input");
 
 //Cliking the Add Button
 submitAddBook.addEventListener("click", () => {
-
   //This is input tag for Book Title
   const bookTitle = document.getElementById("bookTitle").querySelector("input");
   const bookAuthor = document
@@ -66,103 +67,91 @@ submitAddBook.addEventListener("click", () => {
     .querySelector("input");
 
   //Condition
-  if (parseInt(pagesRead.value) > parseInt(totalPages.value)){
-    return pagesRead.setCustomValidity("This cannot be greater than total pages")
+  if (parseInt(pagesRead.value) > parseInt(totalPages.value)) {
+    return pagesRead.setCustomValidity(
+      "This cannot be greater than total pages"
+    );
   } else if (
-        bookTitle.value != "" &&
-        bookAuthor.value != "" &&
-        totalPages.value != "" &&
-        pagesRead.value != "" 
-      ) {
+    bookTitle.value != "" &&
+    bookAuthor.value != "" &&
+    totalPages.value != "" &&
+    pagesRead.value != ""
+  ) {
+    function pushingValueInside() {
+      //Adding all the info in library array as objects
 
-        function pushingValueInside() {
-          //Adding all the info in library array as objects
-          
-          myLibrary.push({
-            title: bookTitle.value,
-            author: bookAuthor.value,
-            totalPages: totalPages.value,
-            pagesRead: pagesRead.value,
-          });
-          }
-        
-        pushingValueInside();
+      myLibrary.push({
+        title: bookTitle.value,
+        author: bookAuthor.value,
+        totalPages: totalPages.value,
+        pagesRead: pagesRead.value,
+      });
+    }
 
+    pushingValueInside();
 
-        function creatingNewCard() {
-          // After Submitting form, creating new card
-          let div = document.createElement("div");
-          let author = document.createElement("p");
-          let title = document.createElement("p");
+    function creatingNewCard() {
+      // After Submitting form, creating new card
+      let div = document.createElement("div");
+      let author = document.createElement("p");
+      let title = document.createElement("p");
 
-          let pageRead = document.createElement("span");
-          let totalPage = document.createElement("span");
+      let pageRead = document.createElement("span");
+      let totalPage = document.createElement("span");
 
-          let editButton = document.createElement("div");
+      let editButton = document.createElement("div");
 
-        
-          
-        
-          let addingCard = document.getElementById("adding-cards");
-          addingCard.style.display = "none";
-          let editIcon = document.createElement("i");
-          editIcon.classList.add("fa-solid");
-          editIcon.classList.add("fa-pen");
-        
+      let addingCard = document.getElementById("adding-cards");
+      addingCard.style.display = "none";
+      let editIcon = document.createElement("i");
+      editIcon.classList.add("fa-solid");
+      editIcon.classList.add("fa-pen");
 
-          div.classList.add("card");
-          div.classList.add("thumbnail");
+      div.classList.add("card");
+      div.classList.add("thumbnail");
 
-          editButton.classList.add("edit-icon");
-          editButton.appendChild(editIcon);
+      editButton.classList.add("edit-icon");
+      editButton.appendChild(editIcon);
 
+      document.querySelector(".card-container").appendChild(div);
 
-          document.querySelector(".card-container").appendChild(div);
-          
-          addingCard.style.display = "flex";
+      addingCard.style.display = "flex";
 
-        // Status Bar
+      // Status Bar
 
-        if(totalPages.value != pagesRead.value){
-          div.classList.add("status-reading");
-        }else {
-          div.classList.add("status-completed");
-        }
-
-          // to capitalize
-          let capBookTitle = bookTitle.value.charAt(0).toUpperCase() + bookTitle.value.slice(1);
-          let capBookAuthor = bookAuthor.value.charAt(0).toUpperCase() + bookAuthor.value.slice(1);
-
-          author.innerHTML = "- " + capBookAuthor;
-          title.innerHTML = capBookTitle;
-          pageRead.innerHTML = pagesRead.value;
-          totalPage.innerHTML = totalPages.value;
-        
-          document.querySelector(".card-container").appendChild(addingCard);
-        
-
-
-          //appending author info inside the new created card
-          div.appendChild(editButton);
-          div.appendChild(title);
-          div.appendChild(author);
-          div.appendChild(pageRead);
-          div.appendChild(totalPage);
-        }
-
-        creatingNewCard();
-
-        // This is necessary to close the add book window
-        if(parseInt(pagesRead.value) <= parseInt(totalPages.value)){
-          closeWindow();
-          form.reset();
-        }
+      if (totalPages.value != pagesRead.value) {
+        div.classList.add("status-reading");
+      } else {
+        div.classList.add("status-completed");
       }
-  
+
+      // to capitalize
+      let capBookTitle =
+        bookTitle.value.charAt(0).toUpperCase() + bookTitle.value.slice(1);
+      let capBookAuthor =
+        bookAuthor.value.charAt(0).toUpperCase() + bookAuthor.value.slice(1);
+
+      author.innerHTML = "- " + capBookAuthor;
+      title.innerHTML = capBookTitle;
+      pageRead.innerHTML = pagesRead.value;
+      totalPage.innerHTML = totalPages.value;
+
+      document.querySelector(".card-container").appendChild(addingCard);
+
+      //appending author info inside the new created card
+      div.appendChild(editButton);
+      div.appendChild(title);
+      div.appendChild(author);
+      div.appendChild(pageRead);
+      div.appendChild(totalPage);
+    }
+
+    creatingNewCard();
+
+    // This is necessary to close the add book window
+    if (parseInt(pagesRead.value) <= parseInt(totalPages.value)) {
+      closeWindow();
+      form.reset();
+    }
+  }
 });
-
-/**************************Status bar***************************/
-
-
-
-
