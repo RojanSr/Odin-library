@@ -118,8 +118,10 @@ submitAddBook.addEventListener("click", () => {
       addingCard.style.display = "flex";
 
       // Status Bar
-
-      if (totalPages.value != pagesRead.value) {
+      console.log(pagesRead.value);
+      if (pagesRead.value == 0) {
+        div.classList.add("status-considering");
+      } else if (totalPages.value != pagesRead.value) {
         div.classList.add("status-reading");
       } else {
         div.classList.add("status-completed");

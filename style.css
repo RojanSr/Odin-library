@@ -152,13 +152,17 @@ header > .container {
   font-size: 0.6em;
   color: var(--white);
 }
+.thumbnail.status-considering::before {
+  content: "Status: Considering";
+  background-color: rgb(151, 161, 103);
+}
 .thumbnail.status-completed::before {
   content: "Status: Completed";
   background-color: green;
 }
 .thumbnail.status-reading::before {
   content: "Status: Reading";
-  background-color: rgb(121, 144, 75);
+  background-color: rgb(184, 202, 81);
 }
 
 .edit-icon {
