@@ -9,7 +9,7 @@
 - [My process](#my-process)
   - [What I learned](#what-i-learned)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
+- [Acknowledgement](#acknowledgement)
 
 ## Overview
 
@@ -51,6 +51,6 @@ User should be able to:
 
 - Email - rairojan1116@gmail.com
 
-### Acknowledgements
+### Acknowledgement
 
 Completely Solo Project
