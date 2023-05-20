@@ -51,6 +51,7 @@ form.addEventListener("submit", handleForm);
 
 /***************Accessing the information after form submit***************/
 
+// This is not yet completed. It will later come to use when editing and deleting content
 const myLibrary = [];
 
 //This is input tag for Add button
